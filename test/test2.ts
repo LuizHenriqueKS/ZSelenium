@@ -18,7 +18,7 @@ import { SeleniumServer, By, Key } from '../src/';
       console.error('Test: Invalid value', result);
     }
   } finally {
-    await driver.quit();
-    seleniumServer.close(); // OPTIONAL
+    await seleniumServer.close();
+    process.exit();
   }
 })();

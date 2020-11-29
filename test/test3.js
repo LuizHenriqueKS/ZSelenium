@@ -18,7 +18,7 @@ const { SeleniumServer, By, Key } = require('../dist/');
       console.error('Test: Invalid value', result);
     }
   } finally {
-    await driver.quit();
-    seleniumServer.close(); // OPTIONAL
+    await seleniumServer.close();
+    process.exit();
   }
 })();

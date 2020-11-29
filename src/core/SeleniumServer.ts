@@ -4,6 +4,7 @@ import { ChildProcess, FsPaths, install, InstallOpts, start, Builder } from '..'
 import AlreadyStartedException from '../exception/AlreadyStartedException';
 import ServerNotStartedException from '../exception/ServerNotStartedException';
 import { StartOpts } from 'selenium-standalone';
+const kill = require('tree-kill');
 
 class SeleniumServer {
   process?: ChildProcess;
@@ -55,12 +56,14 @@ class SeleniumServer {
     });
   }
 
-  close(): boolean {
-    if (this.process) {
-      return this.process.kill();
-    } else {
-      throw new ServerNotStartedException();
-    }
+  close(): Promise<boolean> {
+    return new Promise((resolve) => {
+      if (this.process) {
+        kill(this.process.pid, 'SIGKILL', () => resolve(true));
+      } else {
+        resolve(false);
+      }
+    });
   }
 
   builder(): Builder {

@@ -74,8 +74,8 @@ const { SeleniumServer, By, Key } = require('z-selenium');
       console.error('Test: Invalid value', result);
     }
   } finally {
-    await driver.quit();
-    seleniumServer.close(); // OPTIONAL
+    await seleniumServer.close();
+    process.exit();
   }
 })();
 ```

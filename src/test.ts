@@ -53,7 +53,7 @@ app.listen(port, () => {
   } catch (e) {
     console.error(e);
   } finally {
-    await driver.quit();
+    await seleniumServer.close();
     process.exit();
   }
 })();
