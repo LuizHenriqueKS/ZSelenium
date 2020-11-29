@@ -4,9 +4,21 @@ Simplify the use of selenium with javascript and typescript
 
 # How to install
 
+Fast way
 ```
 npm i z-selenium
+```
 
+Best way to javascript
+```
+npm i z-selenium 
+npm i selenium-standalone selenium-webdriver -D
+```
+
+Best way to typescript
+```
+npm i z-selenium
+npm i selenium-standalone selenium-webdriver @types/selenium-standalone @types/selenium-webdriver -D
 ```
 
 # New features
