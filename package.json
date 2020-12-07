@@ -1,6 +1,6 @@
 {
   "name": "z-selenium",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simplify the use of selenium with javascript and typescript.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
